@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B9134F80-CD30-4CF0-B9A5-2A28709504AC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmailSenderProgram.Worker</RootNamespace>
+    <AssemblyName>EmailSenderProgram.Worker</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmailType.cs" />
+    <Compile Include="EmailWorkerFacade.cs" />
+    <Compile Include="EmailWorkerFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer.Repository\EmailSenderProgram.Repository.csproj">
+      <Project>{1aa085e1-3fc1-492d-897d-ceb414b11e6d}</Project>
+      <Name>EmailSenderProgram.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailSenderProgram.Data\EmailSenderProgram.Data.csproj">
+      <Project>{9aba3eb9-8f83-4517-9735-e16443775890}</Project>
+      <Name>EmailSenderProgram.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailSenderProgram.EmailBuilder\EmailSenderProgram.EmailBuilder.csproj">
+      <Project>{d9afb924-6564-4b7b-832e-8fac191c7cf8}</Project>
+      <Name>EmailSenderProgram.EmailBuilder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailSenderProgram.Sender\EmailSenderProgram.Sender.csproj">
+      <Project>{7edd7248-8f31-425c-b22a-84a20201af33}</Project>
+      <Name>EmailSenderProgram.Sender</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
